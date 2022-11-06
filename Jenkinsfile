@@ -26,7 +26,7 @@ pipeline {
 				       }    
 			    } 
 		 }  */
-		 stage('Sonatype/Nexus deploy') {
+		/* stage('Sonatype/Nexus deploy') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
@@ -41,8 +41,8 @@ pipeline {
          			  sh 'docker push emnar12/projectdevops:latest'
          			}
      			  }
-    		}
-		 /*stage('Docker compose') {
+    		}*/
+		 stage('Docker compose') {
       		      steps {
          parallel(
            "Docker compose": {
@@ -64,6 +64,6 @@ pipeline {
 			       failure {
 				       echo "failed"
 				
-		                }*/
+		                }
 		}
 }
