@@ -4,7 +4,7 @@ pipeline {
 
 	stages {
 		
-		stage('Junit + Mockito Test') {
+		stage('Junit') {
 			steps {
 				sh 'mvn test'
 			      } 
@@ -18,7 +18,7 @@ pipeline {
 		       
 		stage('SonarQube + JacOcO Analysis') {
 			steps {
-				sh "mvn  sonar:sonar -Dsonar.projectKey=devopsproject  -Dsonar.host.url=http:http://192.168.33.10:9000/  -Dsonar.login=324b5d41e637b03344e4dce1d9765a1a47859723"
+				sh "mvn  sonar:sonar -Dsonar.projectKey=projectdevops  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=1b8c2a07180ab20273e0ab6955dcaef5e59bd94a"
 			}
 		        post {
 				always {
