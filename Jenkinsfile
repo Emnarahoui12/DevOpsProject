@@ -16,16 +16,16 @@ pipeline {
 			      }
 		}
 		       
-		/*stage('SonarQube + JacOcO Analysis') {
+		stage('SonarQube + JacOcO Analysis') {
 			steps {
-				sh "mvn  sonar:sonar -Dsonar.projectKey=projectdevops  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=1b8c2a07180ab20273e0ab6955dcaef5e59bd94a"
+				sh "mvn  sonar:sonar -Dsonar.projectKey=springproject  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=3c074b523d4c7c386d849a31aafe8d7ded9b0e49"
 			}
 		        post {
 				always {
 					jacoco execPattern: 'target/jacoco.exec'
 				       }    
 			    } 
-		 }  */
+		 }  
 		/* stage('Sonatype/Nexus deploy') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
