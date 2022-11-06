@@ -16,7 +16,7 @@ pipeline {
 			      }
 		}
 		       
-		stage('SonarQube + JacOcO Analysis') {
+		/*stage('SonarQube + JacOcO Analysis') {
 			steps {
 				sh "mvn  sonar:sonar -Dsonar.projectKey=projectdevops  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=1b8c2a07180ab20273e0ab6955dcaef5e59bd94a"
 			}
@@ -25,23 +25,23 @@ pipeline {
 					jacoco execPattern: 'target/jacoco.exec'
 				       }    
 			    } 
-		 }  
-		/* stage('Sonatype/Nexus deploy') {
+		 }  */
+		 stage('Sonatype/Nexus deploy') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			      }
-		 } */
-		/*  stage('Docker Build and Push') {
+		 } 
+		 stage('Docker Build and Push') {
                        steps {
                                withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
          			  sh 'printenv'
-        			  sh 'docker build -t louay123/louaymed .'
-	 			  sh 'docker tag louay123/louaymed louay123/louaymed:latest'
-         			  sh 'docker push louay123/louaymed:latest'
+        			  sh 'docker build -t emnar12/projectdevops .'
+	 			  sh 'docker tag emnar12/projectdevops emnar12/projectdevops:latest'
+         			  sh 'docker push emnar12/projectdevops:latest'
          			}
      			  }
-    		}*/
+    		}
 		 /*stage('Docker compose') {
       		      steps {
          parallel(
