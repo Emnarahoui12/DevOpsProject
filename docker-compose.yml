@@ -18,7 +18,7 @@ services:
 
   ci-app:
     container_name: ci-spring
-    image: docker.io/louay123/louaymed:latest
+    image: docker.io/emnar12/projectdevops:latest
     ports:
       - "8089:8089"
     networks:
