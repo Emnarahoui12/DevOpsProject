@@ -88,18 +88,8 @@
         </exclusions>
         <scope>test</scope>
     </dependency>
-		<dependency>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.7.8</version>
-		</dependency>
 
-		<dependency>
-			<groupId>org.jacoco</groupId>
-			<artifactId>org.jacoco.agent</artifactId>
-			<version>0.7.8</version>
-			<scope>test</scope>
-		</dependency>
+
 
 	</dependencies>
 <distributionManagement>
@@ -124,25 +114,7 @@
 			</plugin>
 			
 			<!--                   Jacoco Plugin                   -->
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.8</version>
-				<executions>
-					<execution>
-						<id>prepare-agent</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+
 			   			<!--                   nexus Plugin                   -->
 			   
 			   <plugin>
