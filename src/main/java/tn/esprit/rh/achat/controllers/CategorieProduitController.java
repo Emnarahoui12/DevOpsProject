@@ -13,6 +13,8 @@ import java.util.List;
 @RequestMapping("/categorieProduit")
 public class CategorieProduitController {
 
+
+	
 	@Autowired
 	ICategorieProduitService categorieProduitService;
 	
