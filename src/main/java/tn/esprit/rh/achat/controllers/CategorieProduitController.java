@@ -14,7 +14,7 @@ import java.util.List;
 public class CategorieProduitController {
 
 
-	
+
 	@Autowired
 	ICategorieProduitService categorieProduitService;
 	
