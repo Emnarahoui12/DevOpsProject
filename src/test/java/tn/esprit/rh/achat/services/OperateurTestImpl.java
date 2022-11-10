@@ -1,4 +1,4 @@
-package tn.esprit.rh.achat.test;
+package tn.esprit.rh.achat.services;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import tn.esprit.rh.achat.services.IOperateurService;
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
-public class OperateurServiceTest {
+public class OperateurTestImpl {
 	
 	@Autowired
 	IOperateurService ss;
