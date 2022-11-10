@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+
 @Service
 @Slf4j
 @Transactional
@@ -110,6 +111,11 @@ public class FactureServiceImpl implements IFactureService {
 		float totalRecouvrementEntreDeuxDates =reglementService.getChiffreAffaireEntreDeuxDate(startDate,endDate);
 		float pourcentage=(totalRecouvrementEntreDeuxDates/totalFacturesEntreDeuxDates)*100;
 		return pourcentage;
+	}
+	
+	@Override
+	public void deleteFacture(Long factureId) {
+		factureRepository.deleteById(factureId);
 	}
 	
 

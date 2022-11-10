@@ -5,6 +5,7 @@ import tn.esprit.rh.achat.entities.Facture;
 import java.util.Date;
 import java.util.List;
 
+
 public interface IFactureService {
 	List<Facture> retrieveAllFactures();
 
@@ -19,5 +20,6 @@ public interface IFactureService {
 	void assignOperateurToFacture(Long idOperateur, Long idFacture);
 
 	float pourcentageRecouvrement(Date startDate, Date endDate);
-
+	
+	public void deleteFacture(Long factureId);
 }
