@@ -83,11 +83,7 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-clean-plugin</artifactId>
-			<version>3.1.0</version>
-		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -100,11 +96,7 @@
 			</exclusions>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.8.6</version>
-		</dependency>
+
 
 
 	</dependencies>
