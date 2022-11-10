@@ -2,10 +2,10 @@ pipeline {
     agent any
 	
 	
-    tools {
-        maven 'Maven 3.8'
+   
+	 tools {
+        maven '3.8.1'
     }
-	
 	
     stages {
         
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 git branch: 'mariem', 
 				url: 'https://github.com/Emnarahoui12/DevOpsProject',
-				credentialsId : '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' 
+				credentialsId : 'ba06947d-89eb-47f2-9005-584063266420' 
             }
         }
 		
@@ -48,4 +48,3 @@ pipeline {
       
         
     }
-}
