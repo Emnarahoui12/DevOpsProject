@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -30,6 +31,8 @@ public class ProduitServiceImplTestMock {
     ProduitServiceImpl produitService;
 
     @Test
+
+
     public void retrieveAllproduitsTest() {
         when(produitRepository.findAll()).thenReturn(Stream.of(
                         new Produit(1L,"sd","dsf",123,null,null,null,null,null),
@@ -41,6 +44,7 @@ public class ProduitServiceImplTestMock {
     }
 
     @Test
+
     public void addproduitTest() {
         Produit op = new Produit(4L,"cbb","gdsf",235,null,null,null,null,null);
         when(produitRepository.save(op)).thenReturn(op);
@@ -48,6 +52,7 @@ public class ProduitServiceImplTestMock {
     }
 
     @Test
+
     public void retreiveproduitTest() {
         Produit op = new Produit(3L,"cbb","gdsf",235,null,null,null,null,null);
         when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(op));
@@ -57,6 +62,7 @@ public class ProduitServiceImplTestMock {
     }
 
     @Test
+
     public void deleteproduitTest() {
         Produit op = new Produit(3L,"cbb","gdsf",235,null,null,null,null,null);
         produitService.deleteProduit((long) 1);
@@ -65,6 +71,7 @@ public class ProduitServiceImplTestMock {
     }
 
     @Test
+
     public void updatetproduitTest() {
         Produit op = new Produit(3L,"cbb","gdsf",235,null,null,null,null,null);
         Mockito.when(produitRepository.save(Mockito.any(Produit.class))).thenReturn(op);

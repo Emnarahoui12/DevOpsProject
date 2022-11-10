@@ -1,4 +1,4 @@
-package tn.esprit.rh.achat.services;
+/*package tn.esprit.rh.achat.services;
 
 import tn.esprit.rh.achat.entities.Produit;
 import org.junit.jupiter.api.Test;
@@ -37,6 +37,7 @@ public class ProduitServiceImplTest {
     private Date dateCreation;
 
     private Date dateDerniereModification;
+
     @Test
     public void testAddProduit(){
         List<Produit> Produits = ps.retrieveAllProduits();
@@ -88,4 +89,4 @@ public class ProduitServiceImplTest {
 
     }
 
-}
+}*/
