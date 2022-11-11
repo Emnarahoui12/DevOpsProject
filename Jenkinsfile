@@ -52,7 +52,7 @@ pipeline {
             ],  
                 credentialsId: 'nexus3',
                 groupId: 'tn.esprit.rh',
-                nexusUrl: 'http://169.254.103.182:8081/',
+                nexusUrl: 'http://169.254.103.182:32769',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
                 repository: 'TestApp',
