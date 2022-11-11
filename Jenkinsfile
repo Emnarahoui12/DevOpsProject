@@ -39,11 +39,28 @@ pipeline {
         }
       }
     }
-     stage('testing') {
-        steps{
-            sh'mvn test'
+    stage('Nexus'){
+            steps{
+                script{
+                    def mavenPom = readMavenPom file: 'pom.xml'
+                
+        nexusArtifactUploader artifacts: [
+             [artifactId: 'achat',
+                    classifier: '',
+                    file: "target/achat-${mavenPom.version}.jar",
+                     type: 'jar'],
+            ],  
+                credentialsId: 'nexus3',
+                groupId: 'tn.esprit.rh',
+                nexusUrl: 'http://169.254.103.182:8081/',
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                repository: 'TestApp',
+                version: "${mavenPom.version}"
+            }
         }
-         }
+        }
+        
        
         
  
