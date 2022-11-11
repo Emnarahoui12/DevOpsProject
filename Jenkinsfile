@@ -16,9 +16,9 @@ pipeline {
 			      }
 		}
 		       
-		/*stage('SonarQube + JacOcO Analysis') {
+		stage('SonarQube + JacOcO Analysis') {
 			steps {
-				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=faf5060f1fdac026b36edab0e340e8261b1a07cf"
+				sh "mvn  sonar:sonar -Dsonar.projectKey=DevOpsProject  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=fabab3c8200a29f6d277307476e720bc4c5a9b54"
 			}
 		        post {
 				always {
@@ -26,7 +26,7 @@ pipeline {
 				       }    
 			    } 
 		 }  
-		 stage('Sonatype/Nexus deploy') {
+		/* stage('Sonatype/Nexus deploy') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
