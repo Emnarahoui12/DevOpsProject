@@ -2,13 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('checkout GIT') {
-            steps{
-                echo 'Pulling ... ';
-            git branch:'aziz' ,
-            url : 'https://github.com/Emnarahoui12/DevOpsProject.git';
-            }
-        }
            stage("MAVEN Cleaning Phase") {
       
       steps {
