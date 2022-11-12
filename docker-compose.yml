@@ -35,7 +35,7 @@ services:
     environment:
       - MYSQL_HOST=ci-db
       - MYSQL_USERNAME=fares
-      - MYSQL_PASSWORD=fares1+2
+      - MYSQL_PASSWORD=Fares1+2
       - MYSQL_DATABASE=achatdb
       - MYSQL_PORT=3306
 
