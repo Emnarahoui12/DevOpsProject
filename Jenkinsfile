@@ -4,11 +4,11 @@ pipeline {
 
 	stages {
 		
-		stage('Junit + Mockito Test') {
+		/*stage('Junit + Mockito Test') {
 			steps {
 				sh 'mvn test'
 			      } 
-		}
+		}*/
 		stage('Build Artifact - Maven') {
 			steps {
 				sh "mvn clean package -DskipTests=true"
@@ -16,7 +16,7 @@ pipeline {
 			      }
 		}
 		       
-		stage('SonarQube + JacOcO Analysis') {
+	/*	stage('SonarQube + JacOcO Analysis') {
 			steps {
 				sh "mvn  sonar:sonar -Dsonar.projectKey=DevOpsProject  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=fabab3c8200a29f6d277307476e720bc4c5a9b54"
 			}
@@ -41,8 +41,8 @@ pipeline {
          			  sh 'docker push fares156324/fares123:latest'
          			}
      			  }
-    		}
-	/*	 stage('Docker compose') {
+    		}*/
+		 stage('Docker compose') {
       		      steps {
          parallel(
            "Docker compose": {
@@ -64,6 +64,6 @@ pipeline {
 			       failure {
 				       echo "failed"
 				
-		                }*/
+		                }
 		}
 }
