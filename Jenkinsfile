@@ -39,6 +39,11 @@ pipeline {
         }
       }
     }
+ stage('testing') {
+        steps{
+            sh'mvn test'
+        }
+         }		
     stage('Nexus'){
             steps{
                 script{
