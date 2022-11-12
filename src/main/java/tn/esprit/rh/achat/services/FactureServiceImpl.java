@@ -30,7 +30,7 @@ public class FactureServiceImpl implements IFactureService {
     @Autowired
     ReglementServiceImpl reglementService;
 	
-	@Override
+    @Override
 	public List<Facture> retrieveAllFactures() {
 		List<Facture> factures = (List<Facture>) factureRepository.findAll();
 		for (Facture facture : factures) {
@@ -117,6 +117,7 @@ public class FactureServiceImpl implements IFactureService {
 	public void deleteFacture(Long factureId) {
 		factureRepository.deleteById(factureId);
 	}
+	
 	
 
 }

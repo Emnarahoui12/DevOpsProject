@@ -1,5 +1,6 @@
 package tn.esprit.rh.achat.entities;
 
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -35,6 +36,14 @@ public class Facture implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dateDerniereModificationFacture;
 	private Boolean archivee;
+	@OneToMany(mappedBy = "facture")
+	private Set<DetailFacture> detailsFacture;
+    @ManyToOne
+    @JsonIgnore
+    private Fournisseur fournisseur;
+    @OneToMany(mappedBy="facture")
+    @JsonIgnore
+    private Set<Reglement> reglements;
 
 	
 }
