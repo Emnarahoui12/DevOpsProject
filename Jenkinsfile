@@ -1,8 +1,5 @@
 pipeline {
     agent any
-	
-	
-   
 	 tools {
         maven '3.8.1'
     }
@@ -16,14 +13,23 @@ pipeline {
         }
 		
 		
-        stage('Git Code') {
+        stage('Git Fetch') {
             steps {
                 git branch: 'mariem', 
 				url: 'https://github.com/Emnarahoui12/DevOpsProject',
 				credentialsId : 'ba06947d-89eb-47f2-9005-584063266420' 
             }
         }
-		
+	 stage('Increment version'){
+            steps {
+                script {
+                    sh "mvn build-helper:parse-version versions:set \
+                    -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} \
+                    versions:commit"
+
+                }
+            }
+        }	
 		
         stage('BUILD') {
             steps {
