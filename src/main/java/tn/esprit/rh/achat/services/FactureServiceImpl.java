@@ -1,16 +1,25 @@
 package tn.esprit.rh.achat.services;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import tn.esprit.rh.achat.entities.*;
-import tn.esprit.rh.achat.repositories.*;
 
-import javax.transaction.Transactional;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+import tn.esprit.rh.achat.entities.DetailFacture;
+import tn.esprit.rh.achat.entities.Facture;
+import tn.esprit.rh.achat.entities.Fournisseur;
+import tn.esprit.rh.achat.entities.Operateur;
+import tn.esprit.rh.achat.entities.Produit;
+import tn.esprit.rh.achat.repositories.DetailFactureRepository;
+import tn.esprit.rh.achat.repositories.FactureRepository;
+import tn.esprit.rh.achat.repositories.FournisseurRepository;
+import tn.esprit.rh.achat.repositories.OperateurRepository;
+import tn.esprit.rh.achat.repositories.ProduitRepository;
 
 @Service
 @Slf4j
@@ -30,7 +39,7 @@ public class FactureServiceImpl implements IFactureService {
     @Autowired
     ReglementServiceImpl reglementService;
 	
-    @Override
+	@Override
 	public List<Facture> retrieveAllFactures() {
 		List<Facture> factures = (List<Facture>) factureRepository.findAll();
 		for (Facture facture : factures) {
@@ -117,7 +126,6 @@ public class FactureServiceImpl implements IFactureService {
 	public void deleteFacture(Long factureId) {
 		factureRepository.deleteById(factureId);
 	}
-	
 	
 
 }

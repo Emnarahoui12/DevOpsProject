@@ -48,7 +48,7 @@ pipeline {
         nexusArtifactUploader artifacts: [
              [artifactId: 'achat',
                     classifier: '',
-                    file: "target/achat-${mavenPom.version}.jar",
+                    file: "target/devopsprojet-${mavenPom.version}.jar",
                      type: 'jar'],
             ],  
                 credentialsId: 'NEXUS_CRED',
