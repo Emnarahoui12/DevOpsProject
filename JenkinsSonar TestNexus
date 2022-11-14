@@ -5,7 +5,11 @@ pipeline {
     }
 	
     stages {
-        
+       stage('Git version') {
+            steps {
+                sh 'git --version'
+            }
+        }
         stage('Maven version') {
             steps {
                 sh 'mvn --version'
@@ -34,8 +38,13 @@ pipeline {
         }
       }
     }
+        stage('testing') {
+        steps{
+            sh'mvn test'
+        }
+         }
 		
-    stage("Upload artifact"){
+        stage("Upload artifact"){
             steps{
                 script{
                     def mavenPom = readMavenPom file: 'pom.xml'
