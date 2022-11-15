@@ -41,6 +41,14 @@ pipeline {
                 
             }
         }
+                stage("Sonar") {
+            steps {
+                sh " mvn sonar:sonar \
+  -Dsonar.projectKey=devops \
+  -Dsonar.host.url=http://192.168.56.2:9000 \
+  -Dsonar.login=637ec6839361dea1b6fb67959d83bbfe5b4c5f64 "
+            }
+         }
         }
         
         }
