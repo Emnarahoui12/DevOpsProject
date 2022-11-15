@@ -25,7 +25,7 @@ pipeline {
 					jacoco execPattern: 'target/jacoco.exec'
 				       }    
 			    } 
-		 }  */
+		 }  
 		stage('Sonatype/Nexus deploy') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
