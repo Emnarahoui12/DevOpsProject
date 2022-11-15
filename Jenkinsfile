@@ -86,6 +86,14 @@ pipeline {
                 }
             }
         }
+         stage("Build Docker image") {
+          steps{
+              script {
+                  pom = readMavenPom file: "pom.xml";
+                sh "docker build -t mednsi/devopsspringboot:${pom.version} ."
+          }
+          }
+        }
         }
         
         }
