@@ -49,6 +49,43 @@ pipeline {
   -Dsonar.login=637ec6839361dea1b6fb67959d83bbfe5b4c5f64 "
             }
          }
+         stage("Publish to nexus") {
+            steps {
+                script {
+                    pom = readMavenPom file: "pom.xml";
+                    filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
+                    artifactPath = filesByGlob[0].path;
+                    artifactExists = fileExists artifactPath;
+                    
+                    if(artifactExists) {
+                        
+                        nexusArtifactUploader(
+                            nexusVersion: "nexus3",
+                            protocol: "http",
+                            nexusUrl: "192.168.56.2:8081",
+                            groupId: pom.groupId,
+                            version: pom.version,
+                            repository: "maven-releases",
+                            credentialsId: "381f1e35-c107-458d-96ce-9cb731882664",
+                            artifacts: [
+                                [artifactId: pom.artifactId,
+                                classifier: '',
+                                file: artifactPath,
+                                type: pom.packaging],
+
+                                [artifactId: pom.artifactId,
+                                classifier: '',
+                                file: "pom.xml",
+                                type: "pom"]
+                            ]
+                        );
+
+                    } else {
+                        error "*** File could not be found";
+                    }
+                }
+            }
+        }
         }
         
         }
