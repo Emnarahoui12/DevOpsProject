@@ -4,11 +4,11 @@ pipeline {
 
 	stages {
 		
-		stage('Junit') {
+	/*	stage('Junit') {
 			steps {
 				sh 'mvn test'
 			      } 
-		}
+		}*/
 		stage('Build Artifact - Maven') {
 			steps {
 				sh "mvn clean package -DskipTests=true"
@@ -32,7 +32,7 @@ pipeline {
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			      }
 		 } 
-		 stage('Docker Build and Push') {
+	/*	 stage('Docker Build and Push') {
                        steps {
                                withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
          			  sh 'printenv'
@@ -41,7 +41,7 @@ pipeline {
          			  sh 'docker push emnar12/projectdevops:latest'
          			}
      			  }
-    		}
+    		}*/
 		 stage('Docker compose') {
       		      steps {
          parallel(
@@ -49,7 +49,7 @@ pipeline {
                sh 'docker-compose up '
            },
            "Delete running containers": {
-		       sh 'sleep 2m '
+		       sh 'sleep 3m '
                sh 'docker rm -f ci-spring ci-db'
            }
          )
