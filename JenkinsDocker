@@ -35,7 +35,7 @@ pipeline {
   stage('DOCKER BUILD APP IMG STAGE'){
                 steps{
                     script{
-                        sh 'docker build -t devopsprojet:latest .'
+                        sh 'docker build -t devopsprojet .'
                     }
                    
                 }
