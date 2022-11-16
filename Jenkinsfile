@@ -90,7 +90,7 @@ pipeline {
           steps{
               script {
                   pom = readMavenPom file: "pom.xml";
-                sh "docker build -t mednsi/devopsspringboot:latest ."
+                sh "docker build -t mednsi/devopsspringboot:${pom.version} ."
           }
           }
         }
@@ -101,7 +101,7 @@ pipeline {
                   withCredentials([string(credentialsId: '72ab3782-b868-45c7-843e-154510f00fbd', variable: 'dockerHub')])  {
                       sh 'docker login -u mednsi -p ${dockerHub}'
                   }
-                      sh "docker push mednsi/devopsspringboot:latest"
+                      sh "docker push mednsi/devopsspringboot:${pom.version}"
                }
             }
          }
