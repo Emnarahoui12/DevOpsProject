@@ -1,13 +1,14 @@
 package tn.esprit.rh.achat.services;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import tn.esprit.rh.achat.entities.Reglement;
 import tn.esprit.rh.achat.repositories.FactureRepository;
 import tn.esprit.rh.achat.repositories.ReglementRepository;
-
-import java.util.Date;
-import java.util.List;
 
 @Service
 public class ReglementServiceImpl implements IReglementService {
@@ -29,16 +30,17 @@ public class ReglementServiceImpl implements IReglementService {
 
 	@Override
 	public Reglement retrieveReglement(Long id) {
-//		Reglement reglement = reglementRepository.findById(id).orElse(null);
+		
 		
 		return reglementRepository.findById(id).orElse(null);
 	}
 
 	@Override
 	public List<Reglement> retrieveReglementByFacture(Long idFacture) {
-		List<Reglement> reglements= reglementRepository.retrieveReglementByFacture(idFacture);
-		return reglements;
 		
+		return reglementRepository.retrieveReglementByFacture(idFacture);
+		
+
 	}
 
 	@Override

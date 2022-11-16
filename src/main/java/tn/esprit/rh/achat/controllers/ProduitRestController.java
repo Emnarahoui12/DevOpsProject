@@ -1,12 +1,23 @@
 package tn.esprit.rh.achat.controllers;
 
-import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import tn.esprit.rh.achat.entities.Produit;
-import tn.esprit.rh.achat.services.IProduitService;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import io.swagger.annotations.Api;
+import tn.esprit.rh.achat.entities.Produit;
+import tn.esprit.rh.achat.services.IProduitService;
 
 
 @RestController
@@ -22,8 +33,8 @@ public class ProduitRestController {
 	@GetMapping("/retrieve-all-produits")
 	@ResponseBody
 	public List<Produit> getProduits() {
-		List<Produit> list = produitService.retrieveAllProduits();
-		return list;
+		
+		return produitService.retrieveAllProduits();
 	}
 
 	// http://localhost:8089/SpringMVC/produit/retrieve-produit/8
@@ -33,14 +44,16 @@ public class ProduitRestController {
 		return produitService.retrieveProduit(produitId);
 	}
 
+	/* Ajouter en produit tout en lui affectant la catégorie produit et le stock associés */
+	
 	@PostMapping("/add-produit")
 	@ResponseBody
 	public Produit addProduit(@RequestBody Produit p) {
-//		Produit produit = produitService.addProduit(p);
+		
 		return produitService.addProduit(p);
 	}
 
-
+	
 	@DeleteMapping("/remove-produit/{produit-id}")
 	@ResponseBody
 	public void removeProduit(@PathVariable("produit-id") Long produitId) {
@@ -64,17 +77,8 @@ public class ProduitRestController {
 		produitService.assignProduitToStock(idProduit, idStock);
 	}
 
-	/*
-	 * Revenu Brut d'un produit (qte * prix unitaire de toutes les lignes du
-	 * detailFacture du produit envoyé en paramètre )
-	 */
 
-/*	@GetMapping(value = "/getRevenuBrutProduit/{idProduit}/{startDate}/{endDate}")
-	public float getRevenuBrutProduit(@PathVariable("idProduit") Long idProduit,
-			@PathVariable(name = "startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
-			@PathVariable(name = "endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
+	
 
-		return produitService.getRevenuBrutProduit(idProduit, startDate, endDate);
-	}*/
 
 }

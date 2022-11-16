@@ -1,20 +1,21 @@
 package tn.esprit.rh.achat.services;
 
-import tn.esprit.rh.achat.entities.Stock;
-
 import java.util.List;
+
+import tn.esprit.rh.achat.entities.Stock;
 
 public interface IStockService {
 
-	List<Stock> retrieveAllStocks();
+    List<Stock> retrieveAllStocks();
 
-	Stock addStock(Stock s);
+    Stock addStock(Stock s);
 
-	void deleteStock(Long id);
+    void deleteStock(Long id);
 
-	Stock updateStock(Stock u);
+    Stock updateStock(Stock u);
 
-	Stock retrieveStock(Long id);
+    Stock retrieveStock(Long id);
 
-	String retrieveStatusStock();
+    String retrieveStatusStock();
 }
+
