@@ -35,7 +35,7 @@ pipeline {
   stage('DOCKER BUILD APP IMG STAGE'){
                 steps{
                     script{
-                        sh 'docker build -t devopsprojet .'
+                        sh 'docker build -t devopsprojet:latest .'
                     }
                    
                 }
@@ -44,8 +44,8 @@ pipeline {
      stage('DOCKER PUSH IMG STAGE '){
                 steps{
                     script{
-                        withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                        sh 'docker login -u maryemabdennabi -p ${dockerhubpwd}'
+                        withCredentials([string(credentialsId: 'mdpdk', variable: 'mdpdk')]) {
+                        sh 'docker login -u maryemabdennabi -p ${mdpdk}'
                              }
                         sh 'docker tag  devopsprojet maryemabdennabi/devopsprojet:latest'    
                         sh 'docker push maryemabdennabi/devopsprojet'    
