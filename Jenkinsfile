@@ -10,6 +10,7 @@ pipeline {
                 credentialsId :'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'
                 
             }
+		}
 		
 		/*   stage('Junit') {
 			steps {
