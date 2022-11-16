@@ -1,0 +1,70 @@
+pipeline {
+    agent any
+
+
+    tools {
+        maven '3.8.1'
+    }
+
+
+    stages {
+       
+        stage('Maven version') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
+
+
+       stage('Git fetch') {
+            steps {
+                git branch: 'mariem', 
+				url: 'https://github.com/Emnarahoui12/DevOpsProject',
+				credentialsId : 'ba06947d-89eb-47f2-9005-584063266420' 
+            }
+        }
+		
+
+        stage('BUILD') {
+            steps {
+                sh 'mvn clean package -DskipTests'
+            }
+           
+        }
+
+  stage('DOCKER BUILD APP IMG STAGE'){
+                steps{
+                    script{
+                        sh 'docker build -t devopsprojet .'
+                    }
+                   
+                }
+               
+            }
+     stage('DOCKER PUSH IMG STAGE '){
+                steps{
+                    script{
+                        withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
+                        sh 'docker login -u maryemabdennabi -p ${dockerhubpwd}'
+                             }
+                        sh 'docker tag  devopsprojet maryemabdennabi/devopsprojet:latest'    
+                        sh 'docker push maryemabdennabi/devopsprojet'    
+                    }
+                   
+                }
+               
+            }
+            stage('DOCKER COMPOSE STAGE'){
+                steps{
+                    script{
+                        sh 'docker-compose up'
+                    }
+                   
+                }
+               
+            }
+        }
+       
+         
+       
+    }
