@@ -4,11 +4,11 @@ pipeline {
 
 	stages {
 		
-		/*   stage('Junit') {
+		   stage('Junit') {
 			steps {
 				sh 'mvn test'
 			      } 
-		}*/
+		}
 		
 		stage('Build Artifact - Maven') {
 			steps {
@@ -43,7 +43,7 @@ pipeline {
          			}
      			  }
     		}*/
-		 stage('Docker compose') {
+		/* stage('Docker compose') {
       		      steps {
          parallel(
            "Docker compose": {
@@ -65,6 +65,6 @@ pipeline {
 			       failure {
 				       echo "failed"
 				
-		                }
+		                } */
 		}
 }
