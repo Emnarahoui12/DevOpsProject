@@ -4,15 +4,14 @@ pipeline {
 
 	stages {
 		
-		  /*stage('Junit') {
+		/*   stage('Junit') {
 			steps {
 				sh 'mvn test'
 			      } 
 		}*/
 		
 		stage('Build Artifact - Maven') {
-			steps {
-				sh "mvn clean package -DskipTests=true"
+			
 				archive 'target/*.jar'
 			      }
 		}
@@ -33,7 +32,7 @@ pipeline {
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			      }
 		 } 
-	/*	 stage('Docker Build and Push') {
+		 stage('Docker Build and Push') {
                        steps {
                                withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
          			  sh 'printenv'
