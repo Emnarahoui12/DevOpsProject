@@ -25,7 +25,7 @@ services:
         volumes:
             - "db_volume:/var/lib/mysql"   
      frontend:
-        image: mariemabd/frontenddevops
+        image: mariemabd/angularprojectdevops
         depends_on:
             - backend
         ports:
