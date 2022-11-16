@@ -17,7 +17,7 @@ pipeline {
 			      }
 		}*/
 		       
-		/*stage('SonarQube + JacOcO Analysis') {
+		stage('SonarQube + JacOcO Analysis') {
 			steps {
 				sh "mvn  sonar:sonar -Dsonar.projectKey=springproject  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=3c074b523d4c7c386d849a31aafe8d7ded9b0e49"
 			}
@@ -27,7 +27,7 @@ pipeline {
 				       }    
 			    } 
 		 }  
-		stage('Sonatype/Nexus deploy') {
+		/*stage('Sonatype/Nexus deploy') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
