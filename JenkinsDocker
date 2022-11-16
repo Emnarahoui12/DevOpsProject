@@ -44,8 +44,8 @@ pipeline {
      stage('DOCKER PUSH IMG STAGE '){
                 steps{
                     script{
-                        withCredentials([string(credentialsId: 'mdpdk', variable: 'mdpdk')]) {
-                        sh 'docker login -u maryemabdennabi -p ${mdpdk}'
+                        withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
+                        sh 'docker login -u maryemabdennabi -p ${dockerhubpwd}'
                              }
                         sh 'docker tag  devopsprojet maryemabdennabi/devopsprojet:latest'    
                         sh 'docker push maryemabdennabi/devopsprojet'    
