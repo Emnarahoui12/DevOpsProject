@@ -90,7 +90,7 @@ pipeline {
           steps{
               script {
                   pom = readMavenPom file: "pom.xml";
-                sh "docker build -t mednsi/devopsspringboot:${pom.version} ."
+                sh "docker build -t mednsi/devopsspringboot:latest ."
           }
           }
         }
