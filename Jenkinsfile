@@ -94,6 +94,16 @@ pipeline {
           }
           }
         }
+ stage("Publish image") {
+          steps{
+              script {
+                  pom = readMavenPom file: "pom.xml";
+                  withCredentials([string(credentialsId: '72ab3782-b868-45c7-843e-154510f00fbd', variable: 'dockerHub')])  {
+                      sh 'docker login -u mednsi -p ${dockerHub}'
+                  }
+                      sh "docker push mednsi/devopsspringboot:${pom.version}"
+               }
+            }
+         }
         }
-        
         }
