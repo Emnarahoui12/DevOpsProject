@@ -77,7 +77,7 @@
 		<repository>
 			<id>deploymentRepo</id>
 			<name>nexus_devops</name>
-			<url>http://192.168.122.1:8081/repository/nexus_devops/</url>
+			<url>http://172.17.0.3:8081/repository/nexus_devops/</url>
 		</repository>
 	
 	</distributionManagement>
