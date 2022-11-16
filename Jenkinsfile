@@ -3,6 +3,13 @@ pipeline {
 	agent any
 
 	stages {
+		stage('Git') {
+            steps {
+            
+                git branch: 'emna', url: 'https://github.com/Emnarahoui12/DevOpsProject.git',
+                credentialsId :'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'
+                
+            }
 		
 		/*   stage('Junit') {
 			steps {
