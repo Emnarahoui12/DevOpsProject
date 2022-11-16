@@ -33,6 +33,11 @@ pipeline {
   -Dsonar.login=bd530499e23dfcabb568d334f009ec81f18bd321"
       }
     }
+        stage("Nexus Deployement Phase") {
+            steps { 
+                sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
+            }
+        }
     
     }
 }
