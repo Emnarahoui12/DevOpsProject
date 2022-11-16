@@ -46,7 +46,7 @@ pipeline {
                 sh " mvn sonar:sonar \
   -Dsonar.projectKey=devops \
   -Dsonar.host.url=http://192.168.56.2:9000 \
-  -Dsonar.login=637ec6839361dea1b6fb67959d83bbfe5b4c5f64 "
+  -Dsonar.login=dff6183a43ddf81411598361048b6dd658d6c018 "
             }
          }
          stage("Publish to nexus") {
@@ -107,19 +107,19 @@ pipeline {
          }
               stage('Docker Compose') {
                  steps {
-		      
+              
                       sh 'docker-compose up -d --build'
                    }
               }
-	
+    
     }
-	post {
-		always {
+    post {
+        always {
 
-		    emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
-			to: 'mohammed.nasri@esprit.tn',
-			subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+            emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
+            to: 'mohammed.nasri@esprit.tn',
+            subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
 
-		}
+        }
         }
         }
