@@ -38,6 +38,22 @@ pipeline {
                 sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
             }
         }
+        stage("Docker Image") {
+                steps{
+                    sh 'docker build -t amdaziz/achat .'
+                }
+        }
+        stage("Login to DockerHub") {
+                steps{
+                
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u amdaziz -p Aziz.1234567890'
+                }
+        }
+        stage("Push to DockerHub") {
+                steps{
+                    sh 'docker push amdaziz/achat'
+                }
+        }
     
     }
 }
