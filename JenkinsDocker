@@ -41,19 +41,18 @@ pipeline {
                 }
                
             }
-     stage('DOCKER PUSH IMG STAGE '){
+       stage('DOCKER PUSH IMG STAGE '){
                 steps{
                     script{
-                        withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                        sh 'docker login -u maryemabdennabi -p ${dockerhubpwd}'
+                        withCredentials([string(credentialsId: 'docker', variable: 'docker')]) {
+                        sh 'docker login -u mariemabd -p ${docker}'
                              }
-                        sh 'docker tag  devopsprojet maryemabdennabi/devopsprojet:latest'    
-                        sh 'docker push maryemabdennabi/devopsprojet'    
+                        sh 'docker tag devopsprojet mariemabd/devopsprojet:latest'    
+                        sh 'docker push mariemabd/devopsprojet'    
                     }
                    
                 }
-               
-            }
+        }
             stage('DOCKER COMPOSE STAGE'){
                 steps{
                     script{

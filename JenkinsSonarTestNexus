@@ -58,7 +58,7 @@ pipeline {
             ],  
                 credentialsId: 'NEXUS_CRED',
                 groupId: 'tn.esprit.rh',
-                nexusUrl: '169.254.103.182:8081',
+                nexusUrl: '192.168.205.38:8081',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
                 repository: 'DevopsProject',
