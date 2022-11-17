@@ -6,6 +6,15 @@ pipeline {
         registryCredential = 'dockerhub'
         }
     stages{
+	    stage('Checkout GIT'){
+         steps {
+             echo 'Pulling ...';
+              git branch: 'rahmouni',
+              url: 'https://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@github.com/Emnarahoui12/DevOpsProject.git';
+              
+         }
+          
+        }
 
 
 
@@ -45,7 +54,7 @@ pipeline {
        		 sh "docker build -t  medrahmouni/devops ."
        		}
        		}
-
+/*
        		 stage('Push image') {
  		  steps  {
             script {
@@ -57,7 +66,7 @@ pipeline {
                 }
             }
         }
-
+*/
 
 
 
