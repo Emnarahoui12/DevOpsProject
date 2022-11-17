@@ -54,7 +54,7 @@ pipeline {
        		 sh "docker build -t  medrahmouni/devops ."
        		}
        		}
-/*
+
        		 stage('Push image') {
  		  steps  {
             script {
@@ -66,7 +66,7 @@ pipeline {
                 }
             }
         }
-*/
+
 
 
 
