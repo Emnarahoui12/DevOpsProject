@@ -4,8 +4,7 @@ pipeline {
         stage('Git Code') {
             steps {
                 git branch: 'main', 
-				url: 'https://github.com/Emnarahoui12/DevOpsProject',
-				credentialsId : 'ba06947d-89eb-47f2-9005-584063266420' 
+				url: 'https://github.com/abdennabi-maryem/Angulardevopsproject'
                    }
         }
 	
