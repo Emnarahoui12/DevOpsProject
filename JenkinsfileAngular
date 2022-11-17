@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    stages {	
+        stage('Git Code') {
+            steps {
+                git branch: 'main', 
+				url: 'https://github.com/Emnarahoui12/DevOpsProject',
+				credentialsId : 'ba06947d-89eb-47f2-9005-584063266420' 
+                   }
+        }
+	
+
+  stage('DOCKER BUILD IMG STAGE'){
+                steps{
+                    script{
+                        sh 'docker build -t angularprojectdevops .'
+                    }
+                   
+                }
+               
+            }
+     stage('DOCKER PUSH IMG STAGE '){
+                steps{
+                    script{
+                        withCredentials([string(credentialsId: 'docker', variable: 'docker')]) {
+                        sh 'docker login -u mariemabd -p ${docker}'
+                             }
+                        sh 'docker tag  angularprojectdevops mariemabd/angularprojectdevops:latest'    
+                        sh 'docker push mariemabd/angularprojectdevops'    
+                    }
+                   
+                }
+               
+            }
+       
+        }
+        
+          
+        
+    }
