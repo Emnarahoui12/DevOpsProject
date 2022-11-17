@@ -6,15 +6,7 @@ pipeline {
         registryCredential = 'dockerhub'
         }
     stages{
-        stage('Checkout GIT'){
-         steps {
-             echo 'Pulling ...';
-              git branch: 'rahmouni',
-              url: 'https://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@github.com/Emnarahoui12/DevOpsProject.git';
 
-         }
-
-        }
 
 
 
